@@ -104,6 +104,7 @@
             this.showPicture.Size = new System.Drawing.Size(29, 29);
             this.showPicture.TabIndex = 6;
             this.showPicture.TabStop = false;
+            this.showPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPicture_MouseDown);
             // 
             // loginForm
             // 
