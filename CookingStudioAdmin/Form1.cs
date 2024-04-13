@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,5 +43,45 @@ namespace CookingStudioAdmin
             Application.Exit();
         }
 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextbox.Text; // Assuming your username field is named usernameTextBox
+            string password = PasswordTextbox.Text; // Assuming your password field is named passwordTextBox
+
+            // Validate inputs
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Assuming your database connection string is stored somewhere accessible
+            string connectionString = "Server=localhost;Database=cookingstudio;Uid=root;Pwd='';";
+
+            // Query the database
+            string query = "SELECT COUNT(*) FROM admin WHERE username = @username AND password = @password";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Handle the result
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Proceed with granting access or navigating to the next form
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

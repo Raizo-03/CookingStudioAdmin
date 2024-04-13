@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
             this.adminLabel = new System.Windows.Forms.Label();
             this.UsernameTextbox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.unamePicture = new System.Windows.Forms.PictureBox();
             this.passwordPicture = new System.Windows.Forms.PictureBox();
             this.showPicture = new System.Windows.Forms.PictureBox();
@@ -59,23 +59,24 @@
             this.UsernameTextbox.Size = new System.Drawing.Size(200, 29);
             this.UsernameTextbox.TabIndex = 1;
             // 
-            // textBox1
+            // PasswordTextbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(65, 262);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 29);
-            this.textBox1.TabIndex = 2;
+            this.PasswordTextbox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextbox.Location = new System.Drawing.Point(65, 262);
+            this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.Size = new System.Drawing.Size(200, 29);
+            this.PasswordTextbox.TabIndex = 2;
             // 
-            // button1
+            // LoginButton
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(84, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 38);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LoginButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.Location = new System.Drawing.Point(84, 324);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(133, 38);
+            this.LoginButton.TabIndex = 3;
+            this.LoginButton.Text = "LOGIN";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // unamePicture
             // 
@@ -112,8 +113,8 @@
             this.Controls.Add(this.showPicture);
             this.Controls.Add(this.passwordPicture);
             this.Controls.Add(this.unamePicture);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.PasswordTextbox);
             this.Controls.Add(this.UsernameTextbox);
             this.Controls.Add(this.adminLabel);
             this.Name = "loginForm";
@@ -131,8 +132,8 @@
 
         private System.Windows.Forms.Label adminLabel;
         private System.Windows.Forms.TextBox UsernameTextbox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.PictureBox unamePicture;
         private System.Windows.Forms.PictureBox passwordPicture;
         private System.Windows.Forms.PictureBox showPicture;
