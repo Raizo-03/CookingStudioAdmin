@@ -17,6 +17,7 @@ namespace CookingStudioAdmin
 {
     public partial class DashboardForm : Form
     {
+        //calls an instance of databasemanager class to store it in a vaiable
         private DatabaseManager databaseManager;
 
         public DashboardForm()
